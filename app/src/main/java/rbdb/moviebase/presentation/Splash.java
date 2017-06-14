@@ -1,9 +1,12 @@
-package rbdb.moviebase;
+package rbdb.moviebase.presentation;
 
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import rbdb.moviebase.MainActivity;
+import rbdb.moviebase.R;
 
 public class Splash extends AppCompatActivity /*Activity **/{
 
