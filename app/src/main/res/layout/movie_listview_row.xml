@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:background="#1ed760">
+
+    <ImageView
+        android:id="@+id/albumRowImageView"
+        android:background="@android:color/background_light"
+        android:layout_margin="12.5dp"
+        android:layout_height="64dp"
+        android:layout_width="64dp" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="12.5dp">
+
+        <TextView
+            android:id="@+id/movieRowTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#1ed760"
+            android:clickable="false"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Superbad"
+            android:textColor="#1f2e2e"
+            android:textSize="22sp"
+            android:textStyle="normal|bold" />
+
+    </LinearLayout>
+
+</LinearLayout>
