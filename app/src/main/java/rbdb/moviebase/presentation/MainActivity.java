@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -22,7 +23,7 @@ import rbdb.moviebase.Service.FilmRequest;
 import rbdb.moviebase.domain.Film;
 import rbdb.moviebase.domain.FilmAdapter;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener,
+public class MainActivity extends AppCompatActivity implements OnItemClickListener,
         FilmRequest.FilmListener{
 
     public final String TAG = this.getClass().getSimpleName();
@@ -39,12 +40,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        /*
         if(tokenAvailable()){
             requestWindowFeature(Window.FEATURE_NO_TITLE);
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                     WindowManager.LayoutParams.FLAG_FULLSCREEN);
             setContentView(R.layout.activity_main);
+
+*/
 
             listViewFilms = (ListView) findViewById(R.id.listViewFilms);
             listViewFilms.setOnItemClickListener(this);
@@ -57,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             //
             Log.d(TAG, "Token gevonden - Films ophalen!");
             getFilms();
+        /*
         } else {
             //
             // Blijkbaar was er geen token - eerst inloggen dus
@@ -68,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             // back-button zonder inloggen terugkeert naar het homescreen.
             finish();
         }
-
+*/
 
     }
 
