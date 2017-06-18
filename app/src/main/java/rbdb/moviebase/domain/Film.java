@@ -6,6 +6,22 @@ import java.io.Serializable;
 
 public class Film implements Serializable {
 
+    private String title;
+    private String description;
+
+    @Override
+    public String toString() {
+        return "Film{" +
+                "title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
+
+    public Film(String title, String description) {
+        this.title = title;
+        this.description = description;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -14,13 +30,5 @@ public class Film implements Serializable {
         this.title = title;
     }
 
-    @Override
-    public String toString() {
-        return "Film{" +
-                "title='" + title + '\'' +
-                '}';
-    }
-
-    private String title;
 
 }
