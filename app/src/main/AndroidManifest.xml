@@ -2,21 +2,48 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="rbdb.moviebase">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+<<<<<<< HEAD
         android:theme="@style/HiddenTitleTheme">
         <activity android:name=".presentation.Splash">
+=======
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".presentation.MainActivity"
+            android:theme="@style/AppThemeNoActionBar">
+
+        </activity>
+        <activity
+            android:name=".presentation.LoginActivity"
+            android:theme="@style/AppThemeNoActionBar" />
+        <activity
+            android:name=".presentation.SplashScreen"
+            android:theme="@style/AppThemeNoActionBar">
+>>>>>>> feature/listview
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity android:name=".MainActivity"></activity>
+=======
+        <activity
+            android:name=".presentation.SignUpActivity"
+            android:theme="@style/AppThemeNoActionBar" />
+        <activity
+            android:name=".presentation.FilmDetailActivity"
+            android:label="@string/title_activity_film_detail"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+>>>>>>> feature/listview
     </application>
 
 </manifest>
