@@ -24,7 +24,7 @@ public class FilmAdapter extends BaseAdapter {
     private LayoutInflater mInflator;
     private ArrayList<Film> filmArrayList;
 
-    public FilmAdapter(Context context, LayoutInflater layoutInflater, ArrayList<Film> bolToDoArrayList) {
+    public FilmAdapter(Context context, LayoutInflater layoutInflater, ArrayList<Film> filmArrayList) {
         this.mContext = context;
         this.mInflator = layoutInflater;
         this.filmArrayList = filmArrayList;
@@ -75,6 +75,7 @@ public class FilmAdapter extends BaseAdapter {
 
         Film film = filmArrayList.get(position);
         viewHolder.textViewTitle.setText(film.getTitle());
+        viewHolder.textViewDescription.setText(film.getDescription());
 
         return convertView;
     }

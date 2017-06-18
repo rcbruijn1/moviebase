@@ -170,7 +170,7 @@ public class LoginActivity extends AppCompatActivity {
                             // is het token tussen app-stop en -herstart beschikbaar -
                             // totdat het token expired.
                             try {
-                                String token = response.getString("token");
+                                String token = response.getString("id_token");
 
                                 Context context = getApplicationContext();
                                 SharedPreferences sharedPref = context.getSharedPreferences(

@@ -55,7 +55,7 @@ public class FilmRequest {
         SharedPreferences sharedPref = context.getSharedPreferences(
                 context.getString(R.string.preference_file_key), Context.MODE_PRIVATE);
         final String token = sharedPref.getString(context.getString(R.string.saved_token), "token");
-        if(token != null && !token.equals("token")) {
+      //  if(token != null && !token.equals("token")) {
 
             Log.i(TAG, "Token gevonden, we gaan het request uitvoeren");
             JsonObjectRequest jsObjRequest = new JsonObjectRequest(
@@ -82,14 +82,13 @@ public class FilmRequest {
                 public Map<String, String> getHeaders() throws AuthFailureError {
                     Map<String, String> headers = new HashMap<>();
                     headers.put("Content-Type", "application/json");
-                    headers.put("Authorization", "Bearer " + token);
                     return headers;
                 }
             };
 
             // Access the RequestQueue through your singleton class.
             VolleyRequestQueue.getInstance(context).addToRequestQueue(jsObjRequest);
-        }
+     //   }
     }
 
 

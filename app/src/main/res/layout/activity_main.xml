@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
+
     tools:context="rbdb.moviebase.presentation.MainActivity">
 
     <ListView
+        android:id="@+id/listViewFilms"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/listViewFilms"></ListView>
+        android:layout_height="match_parent"></ListView>
 
 </LinearLayout>

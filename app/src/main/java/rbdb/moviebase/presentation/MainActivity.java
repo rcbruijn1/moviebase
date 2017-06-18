@@ -40,20 +40,16 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        /*
-        if(tokenAvailable()){
-            requestWindowFeature(Window.FEATURE_NO_TITLE);
-            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
             setContentView(R.layout.activity_main);
 
-*/
 
-            listViewFilms = (ListView) findViewById(R.id.listViewFilms);
-            listViewFilms.setOnItemClickListener(this);
+            listViewFilms   = (ListView) findViewById(R.id.listViewFilms);
             filmAdapter = new FilmAdapter(this, getLayoutInflater(), films);
             listViewFilms.setAdapter(filmAdapter);
+            listViewFilms.setOnItemClickListener(this);
+
+            filmAdapter.notifyDataSetChanged();
+
             //
             // We hebben een token. Je zou eerst nog kunnen valideren dat het token nog
             // geldig is; dat doen we nu niet.
