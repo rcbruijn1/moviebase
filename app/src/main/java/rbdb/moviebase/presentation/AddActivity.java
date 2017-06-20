@@ -3,13 +3,10 @@ package rbdb.moviebase.presentation;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.design.widget.NavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
@@ -23,7 +20,7 @@ import rbdb.moviebase.Service.FilmRequest;
 import rbdb.moviebase.domain.Film;
 import rbdb.moviebase.domain.FilmAdapter;
 
-public class MainActivity extends AppCompatActivity implements OnItemClickListener,
+public class AddActivity extends AppCompatActivity implements OnItemClickListener,
         FilmRequest.FilmListener{
 
     public final String TAG = this.getClass().getSimpleName();
@@ -40,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-            setContentView(R.layout.activity_main);
+            setContentView(R.layout.activity_add);
 
 
             listViewFilms   = (ListView) findViewById(R.id.listViewFilms);
@@ -86,13 +83,26 @@ public class MainActivity extends AppCompatActivity implements OnItemClickListen
         return result;
     }
 
+
+
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Log.i(TAG, "Position " + position + " is geselecteerd");
 
+//
+//        Intent intent = new Intent(getApplicationContext(), CommitAddActivity.class);
+//        String mInventoryID = film.getInventoryID();
+//        String invId = null;
+//        intent.putExtra(mInventoryID, invId);
+//        startActivity(intent);
+
+
+        Intent intent = new Intent(getApplicationContext(), CommitAddActivity.class);
         Film film = films.get(position);
-        Intent intent = new Intent(getApplicationContext(), FilmDetailActivity.class);
-        intent.putExtra(FILM_DATA, film);
+        String inventoryID = film.getInventoryID().toString();
+
+        intent.putExtra("ID", inventoryID);
+        intent.putExtra("FILM_DATA", film);
         startActivity(intent);
     }
 

@@ -16,23 +16,23 @@ import rbdb.moviebase.R;
  * Created by Daniel on 18-6-2017.
  */
 
-public class FilmAdapter extends BaseAdapter {
+public class RentalAdapter extends BaseAdapter {
 
     private final String TAG = this.getClass().getSimpleName();
 
     private Context mContext;
     private LayoutInflater mInflator;
-    private ArrayList<Film> filmArrayList;
+    private ArrayList<Rental> rentalArrayList;
 
-    public FilmAdapter(Context context, LayoutInflater layoutInflater, ArrayList<Film> filmArrayList) {
+    public RentalAdapter(Context context, LayoutInflater layoutInflater, ArrayList<Rental> rentalArrayList) {
         this.mContext = context;
         this.mInflator = layoutInflater;
-        this.filmArrayList = filmArrayList;
+        this.rentalArrayList = rentalArrayList;
     }
 
     @Override
     public int getCount() {
-        int size = filmArrayList.size();
+        int size = rentalArrayList.size();
         Log.i(TAG, "getCount() = " + size);
         return size;
     }
@@ -40,7 +40,7 @@ public class FilmAdapter extends BaseAdapter {
     @Override
     public Object getItem(int position) {
         Log.i(TAG, "getItem() at " + position);
-        return filmArrayList.get(position);
+        return rentalArrayList.get(position);
     }
 
     @Override
@@ -66,6 +66,7 @@ public class FilmAdapter extends BaseAdapter {
             viewHolder.textViewTitle = (TextView) convertView.findViewById(R.id.rowFilmTitle);
             viewHolder.textViewDescription = (TextView) convertView.findViewById(R.id.rowFilmDescription);
             viewHolder.textViewInventoryID = (TextView) convertView.findViewById(R.id.rowInventoryID);
+            viewHolder.textViewCustomerID = (TextView) convertView.findViewById(R.id.rowCustomerID);
 
             // Sla de viewholder op in de convertView
             convertView.setTag(viewHolder);
@@ -74,10 +75,11 @@ public class FilmAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        Film film = filmArrayList.get(position);
-        viewHolder.textViewTitle.setText(film.getTitle());
-        viewHolder.textViewDescription.setText(film.getDescription());
-        viewHolder.textViewInventoryID.setText(film.getInventoryID());
+        Rental rental = rentalArrayList.get(position);
+        viewHolder.textViewTitle.setText(rental.getTitle());
+        viewHolder.textViewDescription.setText(rental.getDescription());
+        viewHolder.textViewInventoryID.setText(rental.getInventoryID());
+        viewHolder.textViewInventoryID.setText(rental.getCustomerID());
 
         return convertView;
     }
@@ -86,7 +88,9 @@ public class FilmAdapter extends BaseAdapter {
         public TextView textViewTitle;
         public TextView textViewDescription;
         public TextView textViewInventoryID;
+        public TextView textViewCustomerID;
     }
 
 }
+
 

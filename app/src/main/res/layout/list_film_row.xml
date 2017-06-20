@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="100dp">
+
+    <LinearLayout
+        android:layout_weight="9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
@@ -11,6 +17,7 @@
         android:padding="10dp"
         android:textStyle="bold"
         android:id="@+id/rowFilmTitle"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,7 +26,31 @@
         android:padding="10dp"
         android:id="@+id/rowFilmDescription"/>
 
+        <TextView
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:text="Inventory ID"
+            android:padding="10dp"
+            android:id="@+id/rowInventoryID"/>
+        <TextView
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:text="Rental ID"
+            android:padding="10dp"
+            android:id="@+id/rowRentalID"/>
+        <TextView
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:text="Rental ID"
+            android:padding="10dp"
+            android:id="@+id/rowCustomerID"/>
 
-
+    </LinearLayout>
 
 </LinearLayout>
