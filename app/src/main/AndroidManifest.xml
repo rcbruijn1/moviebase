@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="rbdb.moviebase">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,13 +12,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".presentation.AddActivity"
+            android:theme="@style/AppThemeNoActionBar" />
+        <activity
+            android:name=".presentation.LoginActivity"
+            android:theme="@style/AppThemeNoActionBar" />
+        <activity
+            android:name=".presentation.SplashScreen"
+            android:theme="@style/AppThemeNoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".presentation.SignUpActivity"
+            android:theme="@style/AppThemeNoActionBar" />
+        <activity
+            android:name=".presentation.FilmDetailActivity"
+            android:label="@string/title_activity_film_detail"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".presentation.CommitAddActivity" />
+        <activity android:name=".presentation.MenuActivity" />
+        <activity android:name=".presentation.EditActivity" />
+        <activity android:name=".presentation.CommitEditActivity"></activity>
     </application>
 
 </manifest>
