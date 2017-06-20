@@ -14,19 +14,21 @@ import java.util.ArrayList;
  * Created by Daniel on 18-6-2017.
  */
 
-public class FilmMapper {
+public class RentalMapper {
     // De JSON attributen die we uitlezen
     public static final String FILM_RESULT = "result";
     public static final String FILM_TITLE = "title";
     public static final String FILM_DESCRIPTION = "description";
     public static final String INVENTORY_ID = "inventory_id";
+    public static final String CUSTOMER_ID = "customer_id";
+
 
     /**
      * Map het JSON response op een arraylist en retourneer deze.
      */
-    public static ArrayList<Film> mapFilmList(JSONObject response){
+    public static ArrayList<Rental> mapRentalList(JSONObject response){
 
-        ArrayList<Film> result = new ArrayList<>();
+        ArrayList<Rental> result = new ArrayList<>();
 
         try{
             JSONArray jsonArray = response.getJSONArray(FILM_RESULT);
@@ -35,14 +37,15 @@ public class FilmMapper {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
 
 
-                Film film = new Film(
+                Rental rental = new Rental(
                         jsonObject.getString(FILM_TITLE),
                         jsonObject.getString(FILM_DESCRIPTION),
-                        jsonObject.getString(INVENTORY_ID)
+                        jsonObject.getString(INVENTORY_ID),
+                        jsonObject.getString(CUSTOMER_ID)
 
                 );
                 // Log.i("ToDoMapper", "Film: " + film);
-                result.add(film);
+                result.add(rental);
             }
         } catch( JSONException ex) {
             Log.e("FilmMapper", "onPostExecute JSONException " + ex.getLocalizedMessage());
@@ -50,4 +53,5 @@ public class FilmMapper {
         return result;
     }
 }
+
 

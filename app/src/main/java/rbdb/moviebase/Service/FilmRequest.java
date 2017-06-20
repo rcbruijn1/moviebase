@@ -3,10 +3,16 @@ package rbdb.moviebase.Service;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkError;
+import com.android.volley.NoConnectionError;
+import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.Response;
+import com.android.volley.ServerError;
+import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 
@@ -16,6 +22,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import rbdb.moviebase.R;
 import rbdb.moviebase.domain.Film;
@@ -76,6 +83,25 @@ public class FilmRequest {
                         public void onErrorResponse(VolleyError error) {
                             // handleErrorResponse(error);
                             Log.e(TAG, error.toString());
+                            if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                                Toast.makeText(context,
+                                        context.getString(R.string.error_network_timeout),
+                                        Toast.LENGTH_LONG).show();
+                            } else if (error instanceof AuthFailureError) {
+                                //TODO
+                            } else if (error instanceof ServerError) {
+//                                try {
+//                                    TimeUnit.SECONDS.sleep(5);
+//                                    handleGetAllFilms();
+//                                } catch (InterruptedException e) {
+//                                    e.printStackTrace();
+//                                }
+
+                            } else if (error instanceof NetworkError) {
+                                //TODO
+                            } else if (error instanceof ParseError) {
+                                //TODO
+                            }
                         }
                     }) {
                 @Override
@@ -93,7 +119,7 @@ public class FilmRequest {
 
 
     //
-    // Callback interface - implemented by the calling class (MainActivity in our case).
+    // Callback interface - implemented by the calling class (AddActivity in our case).
     //
     public interface FilmListener {
         // Callback function to return a fresh list of Films

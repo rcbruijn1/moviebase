@@ -3,22 +3,17 @@ package rbdb.moviebase.presentation;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.media.MediaPlayer;
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.VideoView;
 
 import com.andexert.library.RippleView;
 import com.android.volley.DefaultRetryPolicy;
@@ -180,7 +175,7 @@ public class LoginActivity extends AppCompatActivity {
                                 editor.commit();
 
                                 // Start the main activity, and close the login activity
-                                Intent main = new Intent(getApplicationContext(), MainActivity.class);
+                                Intent main = new Intent(getApplicationContext(), MenuActivity.class);
                                 startActivity(main);
                                 // Close the current activity
                                 finish();
@@ -222,7 +217,8 @@ public class LoginActivity extends AppCompatActivity {
 
         try {
             JSONObject jsonBody = new JSONObject(body);
-            JsonObjectRequest jsObjRequest = new JsonObjectRequest
+
+            final JsonObjectRequest jsObjRequest = new JsonObjectRequest
                     (Request.Method.POST, Config.URL_REGISTER, jsonBody, new Response.Listener<JSONObject>() {
 
                         @Override
@@ -246,7 +242,7 @@ public class LoginActivity extends AppCompatActivity {
                                 editor.commit();
 
                                 // Start the main activity, and close the login activity
-                                Intent main = new Intent(getApplicationContext(), MainActivity.class);
+                                Intent main = new Intent(getApplicationContext(), AddActivity.class);
                                 startActivity(main);
                                 // Close the current activity
                                 finish();
