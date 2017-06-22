@@ -21,6 +21,7 @@ public class RentalMapper {
     public static final String FILM_DESCRIPTION = "description";
     public static final String INVENTORY_ID = "inventory_id";
     public static final String CUSTOMER_ID = "customer_id";
+    public static final String RENTAL_ID = "rental_id";
 
 
     /**
@@ -41,7 +42,8 @@ public class RentalMapper {
                         jsonObject.getString(FILM_TITLE),
                         jsonObject.getString(FILM_DESCRIPTION),
                         jsonObject.getString(INVENTORY_ID),
-                        jsonObject.getString(CUSTOMER_ID)
+                        jsonObject.getString(CUSTOMER_ID),
+                        jsonObject.getString(RENTAL_ID)
 
                 );
                 // Log.i("ToDoMapper", "Film: " + film);

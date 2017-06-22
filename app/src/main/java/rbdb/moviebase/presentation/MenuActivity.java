@@ -25,7 +25,7 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
-        final RippleView rippleViewEditRental = (RippleView) findViewById(R.id.btnEditRental);
+        final RippleView rippleViewEditRental = (RippleView) findViewById(R.id.btnManageRental);
         rippleViewEditRental.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -167,7 +167,16 @@ public class LoginActivity extends AppCompatActivity {
                             try {
                                 String token = response.getString("id_token");
 
+                                Integer customerId = response.getJSONArray("result").getJSONObject(0).getInt("customer_id");
                                 Context context = getApplicationContext();
+
+                                SharedPreferences customerPref = context.getSharedPreferences(
+                                        getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+                                SharedPreferences.Editor customerEditor = customerPref.edit();
+                                customerEditor.putInt("customer_id", customerId);
+                                customerEditor.commit();
+
+
                                 SharedPreferences sharedPref = context.getSharedPreferences(
                                         getString(R.string.preference_file_key), Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPref.edit();

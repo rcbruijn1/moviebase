@@ -64,8 +64,8 @@ public class EditRequest {
 
         Log.i(TAG, "Token gevonden, we gaan het request uitvoeren");
         JsonObjectRequest jsObjRequest = new JsonObjectRequest(
-                Request.Method.POST,
-                Config.URL_RENTAL + "/" + cusId + "/" + invId,
+                Request.Method.PUT,
+                Config.URL_RENTAL + "/" + invId,
                 null,
                 new Response.Listener<JSONObject>() {
                     @Override

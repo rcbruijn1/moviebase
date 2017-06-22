@@ -56,14 +56,14 @@ public class RentRequest {
                 context.getString(R.string.preference_file_key), Context.MODE_PRIVATE);
 
         final String token = sharedPref.getString(context.getString(R.string.saved_token), "token");
-        final String cusId = sharedPref.getString(context.getString(R.string.customer_id), "cusId");
+        final int customerId = sharedPref.getInt("customer_id", 1);
         final String invId = sharedPref.getString(context.getString(R.string.inventory_id), "invId");
         //  if(token != null && !token.equals("token")) {
 
         Log.i(TAG, "Token gevonden, we gaan het request uitvoeren");
         JsonObjectRequest jsObjRequest = new JsonObjectRequest(
                 Request.Method.POST,
-                Config.URL_RENTAL + "/" + cusId + "/" + invId,
+                Config.URL_RENTAL + "/" + customerId + "/" + invId,
                 null,
                 new Response.Listener<JSONObject>() {
                     @Override

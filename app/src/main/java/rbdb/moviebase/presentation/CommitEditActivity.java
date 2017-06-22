@@ -9,12 +9,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.andexert.library.RippleView;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import es.dmoral.toasty.Toasty;
 import rbdb.moviebase.R;
 import rbdb.moviebase.Service.EditRequest;
 import rbdb.moviebase.Service.RentRequest;
@@ -26,7 +28,7 @@ public class CommitEditActivity extends AppCompatActivity implements
     public final String TAG = this.getClass().getSimpleName();
 
     // UI Elements
-    private EditText editTextCustomerId;
+
     private TextView txtLoginErrorMsg;
 
     private String mCustomerId;
@@ -39,14 +41,16 @@ public class CommitEditActivity extends AppCompatActivity implements
 
         Intent intent = getIntent();
         Rental rental = (Rental) intent.getSerializableExtra("RENTAL_DATA");
-        final String mInventoryId = rental.getInventoryID().toString(); intent.getSerializableExtra("ID");
-        final String mRentalId = rental.getInventoryID().toString(); intent.getSerializableExtra("rID");
+        final String mInventoryId = rental.getInventoryID().toString();
+        //intent.getStringExtra("ID");
+        final String mRentalId = rental.getRentalID().toString();
+        //intent.getStringExtra("rID");
 
         System.out.println(mInventoryId);
 
         Log.d(TAG, "Token gevonden - Films ophalen!");
 
-        editTextCustomerId = (EditText) findViewById(R.id.editTextCustomerId);
+
         txtLoginErrorMsg = (TextView) findViewById(R.id.txtLoginErrorMessage);
         final RippleView rippleViewEdit = (RippleView) findViewById(R.id.btnEdit);
 
@@ -69,6 +73,10 @@ public class CommitEditActivity extends AppCompatActivity implements
                 // momenteel checken we nog niet
 
                 editRental();
+                Toasty.success(getApplicationContext(), "Returned!", Toast.LENGTH_LONG, true).show();
+                Intent back = new Intent(getApplicationContext(), MenuActivity.class);
+                startActivity(back);
+                finish();
             }
         });
 

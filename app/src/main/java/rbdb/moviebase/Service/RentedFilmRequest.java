@@ -64,9 +64,16 @@ public class RentedFilmRequest {
         //  if(token != null && !token.equals("token")) {
 
         Log.i(TAG, "Token gevonden, we gaan het request uitvoeren");
+
+        // Haal het token uit de prefs
+        SharedPreferences customerPref = context.getSharedPreferences(
+                context.getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+        final int customerId = sharedPref.getInt("customer_id", 1);
+
+
         JsonObjectRequest jsObjRequest = new JsonObjectRequest(
                 Request.Method.GET,
-                Config.URL_RENTAL + "/",
+                Config.URL_RENTAL + "/" + customerId,
                 null,
                 new Response.Listener<JSONObject>() {
                     @Override

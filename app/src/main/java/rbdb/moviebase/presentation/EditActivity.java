@@ -100,16 +100,15 @@ public class EditActivity extends AppCompatActivity implements OnItemClickListen
 //        startActivity(intent);
 
 
-        Intent intent = new Intent(getApplicationContext(), CommitAddActivity.class);
+        Intent intent = new Intent(getApplicationContext(), CommitEditActivity.class);
         Rental rental = rentals.get(position);
         String inventoryID = rental.getInventoryID().toString();
-        String rentalID = rental.getRentalID();
-       // String rentalID = rental.getRentalID().toString();
+        String rentalID = rental.getRentalID().toString();
+
 
         intent.putExtra("ID", inventoryID);
         intent.putExtra("rID", rentalID);
-    //    intent.putExtra("rID", rentalID);
-        intent.putExtra("FILM_DATA", rental);
+        intent.putExtra("RENTAL_DATA", rental);
         startActivity(intent);
     }
 

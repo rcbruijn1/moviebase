@@ -8,13 +8,13 @@
         <item name="colorAccent">@color/colorAccentOne</item>
     </style>
 
-<<<<<<< HEAD
+
     <style name="HiddenTitleTheme" parent="AppTheme">
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
     </style>
 
-=======
+
     <style name="AppThemeNoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>

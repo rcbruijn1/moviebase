@@ -71,15 +71,15 @@
                 </com.andexert.library.RippleView>
 
                 <com.andexert.library.RippleView
-                    android:layout_margin="10dp"
-                    android:id="@+id/btnEditRental"
+                    android:id="@+id/btnManageRental"
+                    rv_centered="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    rv_centered="true">
+                    android:layout_margin="10dp">
 
                     <Button
-                        android:text="Edit A Rental"
-                        style="@style/SignUpButtonStyle"/>
+                        style="@style/SignUpButtonStyle"
+                        android:text="Manage Rentals" />
 
                 </com.andexert.library.RippleView>
 

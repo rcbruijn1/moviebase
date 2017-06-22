@@ -9,11 +9,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.andexert.library.RippleView;
 
 import java.io.Serializable;
 
+import es.dmoral.toasty.Toasty;
 import rbdb.moviebase.R;
 import rbdb.moviebase.Service.RentRequest;
 import rbdb.moviebase.domain.Film;
@@ -24,7 +26,7 @@ public class CommitAddActivity extends AppCompatActivity implements
     public final String TAG = this.getClass().getSimpleName();
 
     // UI Elements
-    private EditText editTextCustomerId;
+
     private TextView txtLoginErrorMsg;
 
     private String mCustomerId;
@@ -44,14 +46,14 @@ public class CommitAddActivity extends AppCompatActivity implements
 
         Log.d(TAG, "Token gevonden - Films ophalen!");
 
-        editTextCustomerId = (EditText) findViewById(R.id.edittextCustomerId);
+
         txtLoginErrorMsg = (TextView) findViewById(R.id.txtLoginErrorMessage);
         final RippleView rippleViewRent = (RippleView) findViewById(R.id.btnRent);
 
         rippleViewRent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mCustomerId = editTextCustomerId.getText().toString();
+
 
 
 
@@ -67,6 +69,10 @@ public class CommitAddActivity extends AppCompatActivity implements
                 // momenteel checken we nog niet
 
                 rentFilm();
+                Toasty.success(getApplicationContext(), "Rented!", Toast.LENGTH_LONG, true).show();
+                Intent back = new Intent(getApplicationContext(), MenuActivity.class);
+                startActivity(back);
+                finish();
             }
         });
 

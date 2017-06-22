@@ -16,10 +16,10 @@
             android:name=".presentation.AddActivity"
             android:theme="@style/AppThemeNoActionBar" />
         <activity
-            android:name=".presentation.LoginActivity"
+            android:name=".presentation.Splash"
             android:theme="@style/AppThemeNoActionBar" />
         <activity
-            android:name=".presentation.SplashScreen"
+            android:name=".presentation.LoginActivity"
             android:theme="@style/AppThemeNoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

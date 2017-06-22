@@ -44,43 +44,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <EditText
-                    android:alpha="0.5"
-                    android:id="@+id/edittextCustomerId"
-                    android:hint="@string/customer_id"
-                    style="@style/EditTextStyle"
-                    android:inputType="text" />
-
-
-
-
 
             </LinearLayout>
 
             <LinearLayout
-                android:animateLayoutChanges="true"
                 android:id="@+id/loginButtonLayout"
-                android:layout_alignParentBottom="true"
-                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical">
 
                 <com.andexert.library.RippleView
-                    android:layout_margin="10dp"
                     android:id="@+id/btnRent"
+                    rv_centered="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toLeftOf="@+id/more2"
-                    rv_centered="true">
+                    android:layout_margin="10dp"
+                    android:layout_toLeftOf="@+id/more2">
 
                     <Button
                         style="@style/SignInButtonStyle"
-                        android:text="@string/rent"/>
+                        android:text="@string/rent" />
 
                 </com.andexert.library.RippleView>
-
-
-
 
 
             </LinearLayout>

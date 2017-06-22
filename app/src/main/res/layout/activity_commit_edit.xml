@@ -44,16 +44,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <EditText
-                    android:alpha="0.5"
-                    android:id="@+id/editTextCustomerId"
-                    android:hint="@string/customer_id"
-                    style="@style/EditTextStyle"
-                    android:inputType="text" />
-
-
-
-
 
             </LinearLayout>
 
@@ -75,7 +65,7 @@
 
                     <Button
                         style="@style/SignInButtonStyle"
-                        android:text="Edit"/>
+                        android:text="Return movie" />
 
                 </com.andexert.library.RippleView>
 

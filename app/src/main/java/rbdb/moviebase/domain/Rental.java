@@ -37,7 +37,7 @@ public class Rental implements Serializable {
         return title;
     }
 
-    public Rental(String title, String description, String customerID, String inventoryID) {
+    public Rental(String title, String description, String customerID, String inventoryID, String rentalID) {
         this.title = title;
         this.description = description;
         this.customerID = customerID;
