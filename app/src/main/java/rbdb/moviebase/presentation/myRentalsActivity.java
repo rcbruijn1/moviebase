@@ -37,7 +37,7 @@ public class myRentalsActivity extends AppCompatActivity implements OnItemClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_edit);
+        setContentView(R.layout.activity_my_rentals);
 
 
         listViewRentals   = (ListView) findViewById(R.id.listViewRentals);

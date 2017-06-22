@@ -35,7 +35,7 @@ public class ReturnRentalActivity extends AppCompatActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_commit_edit);
+        setContentView(R.layout.activity_return_rental);
 
         Intent intent = getIntent();
         Rental rental = (Rental) intent.getSerializableExtra("RENTAL_DATA");

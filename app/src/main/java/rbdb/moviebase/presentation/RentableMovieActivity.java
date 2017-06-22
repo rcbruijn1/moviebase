@@ -37,7 +37,7 @@ public class RentableMovieActivity extends AppCompatActivity implements OnItemCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-            setContentView(R.layout.activity_add);
+            setContentView(R.layout.activity_rentable_movie);
 
 
             listViewFilms   = (ListView) findViewById(R.id.listViewFilms);
