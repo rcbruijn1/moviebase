@@ -16,14 +16,11 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import rbdb.moviebase.R;
-import rbdb.moviebase.Service.EditRequest;
 import rbdb.moviebase.Service.RentedFilmRequest;
-import rbdb.moviebase.domain.Film;
-import rbdb.moviebase.domain.FilmAdapter;
 import rbdb.moviebase.domain.Rental;
 import rbdb.moviebase.domain.RentalAdapter;
 
-public class EditActivity extends AppCompatActivity implements OnItemClickListener,
+public class myRentalsActivity extends AppCompatActivity implements OnItemClickListener,
         RentedFilmRequest.RentedFilmListener{
 
     public final String TAG = this.getClass().getSimpleName();
@@ -83,7 +80,7 @@ public class EditActivity extends AppCompatActivity implements OnItemClickListen
 
 
 
-        Intent intent = new Intent(getApplicationContext(), CommitEditActivity.class);
+        Intent intent = new Intent(getApplicationContext(), ReturnRentalActivity.class);
         Rental rental = rentals.get(position);
         String inventoryID = rental.getInventoryID().toString();
         String rentalID = rental.getRentalID().toString();

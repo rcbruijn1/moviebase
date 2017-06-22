@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".presentation.AddActivity"
+            android:name=".presentation.RentableMovieActivity"
             android:theme="@style/AppThemeNoActionBar" />
 
         <activity
@@ -29,10 +29,10 @@
             android:name=".presentation.FilmDetailActivity"
             android:label="@string/title_activity_film_detail"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".presentation.CommitAddActivity" />
+        <activity android:name=".presentation.RentActivity" />
         <activity android:name=".presentation.MenuActivity" />
-        <activity android:name=".presentation.EditActivity" />
-        <activity android:name=".presentation.CommitEditActivity"></activity>
+        <activity android:name=".presentation.myRentalsActivity" />
+        <activity android:name=".presentation.ReturnRentalActivity"></activity>
     </application>
 
 </manifest>

@@ -7,21 +7,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.andexert.library.RippleView;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import es.dmoral.toasty.Toasty;
 import rbdb.moviebase.R;
-import rbdb.moviebase.Service.RentRequest;
-import rbdb.moviebase.domain.Film;
+import rbdb.moviebase.Service.RentalReturnRequest;
+import rbdb.moviebase.domain.Rental;
 
-public class CommitAddActivity extends AppCompatActivity implements
-        RentRequest.RentListener, Serializable{
+public class ReturnRentalActivity extends AppCompatActivity implements
+        RentalReturnRequest.EditListener, Serializable{
 
     public final String TAG = this.getClass().getSimpleName();
 
@@ -29,17 +29,18 @@ public class CommitAddActivity extends AppCompatActivity implements
 
     private TextView txtLoginErrorMsg;
 
-    private String mCustomerId;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_commit_add);
+        setContentView(R.layout.activity_commit_edit);
 
         Intent intent = getIntent();
-        Film film = (Film) intent.getSerializableExtra("FILM_DATA");
-        final String mInventoryId = film.getInventoryID().toString(); intent.getSerializableExtra("ID");
+        Rental rental = (Rental) intent.getSerializableExtra("RENTAL_DATA");
+        final String mInventoryId = rental.getInventoryID().toString();
+        final String mRentalId = rental.getRentalID().toString();
 
 
         System.out.println(mInventoryId);
@@ -48,11 +49,12 @@ public class CommitAddActivity extends AppCompatActivity implements
 
 
         txtLoginErrorMsg = (TextView) findViewById(R.id.txtLoginErrorMessage);
-        final RippleView rippleViewRent = (RippleView) findViewById(R.id.btnRent);
+        final RippleView rippleViewEdit = (RippleView) findViewById(R.id.btnEdit);
 
-        rippleViewRent.setOnClickListener(new View.OnClickListener() {
+        rippleViewEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
 
 
@@ -60,14 +62,15 @@ public class CommitAddActivity extends AppCompatActivity implements
                 SharedPreferences sharedPref = context.getSharedPreferences(
                         getString(R.string.preference_file_key), Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPref.edit();
-                editor.putString(getString(R.string.customer_id), mCustomerId);
+                editor.putString(getString(R.string.rental_id), mRentalId);
                 editor.putString(getString(R.string.inventory_id), mInventoryId);
                 editor.commit();
 
+                // TODO Checken of username en password niet leeg zijn
+                // momenteel checken we nog niet
 
-
-                rentFilm();
-                Toasty.success(getApplicationContext(), "Rented!", Toast.LENGTH_LONG, true).show();
+                editRental();
+                Toasty.success(getApplicationContext(), "Returned!", Toast.LENGTH_LONG, true).show();
                 Intent back = new Intent(getApplicationContext(), MenuActivity.class);
                 startActivity(back);
                 finish();
@@ -95,13 +98,21 @@ public class CommitAddActivity extends AppCompatActivity implements
 
 
 
+
+
+
+
     /**
      * Start the activity to GET all Films from the server.
      */
-    private void rentFilm(){
+    private void editRental(){
 
-        RentRequest request = new RentRequest(getApplicationContext(), this);
-        request.handleRentFilm();
+        RentalReturnRequest requestEdit = new RentalReturnRequest(getApplicationContext(), this);
+        requestEdit.handleGetRentals();
     }
 
+    @Override
+    public void onRentalsAvailable(ArrayList<Rental> rentals) {
+
+    }
 }

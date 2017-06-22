@@ -20,7 +20,7 @@ public class MenuActivity extends AppCompatActivity {
         rippleViewAddRental.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent add = new Intent(getApplicationContext(), AddActivity.class);
+                Intent add = new Intent(getApplicationContext(), RentableMovieActivity.class);
                 startActivity(add);
             }
         });
@@ -29,7 +29,7 @@ public class MenuActivity extends AppCompatActivity {
         rippleViewEditRental.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent edit = new Intent(getApplicationContext(), EditActivity.class);
+                Intent edit = new Intent(getApplicationContext(), myRentalsActivity.class);
                 startActivity(edit);
             }
         });

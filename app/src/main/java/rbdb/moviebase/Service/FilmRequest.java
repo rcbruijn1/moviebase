@@ -114,7 +114,7 @@ public class FilmRequest {
 
 
     //
-    // Callback interface - implemented by the calling class (AddActivity in our case).
+    // Callback interface - implemented by the calling class (RentableMovieActivity in our case).
     //
     public interface FilmListener {
         // Callback function to return a fresh list of Films

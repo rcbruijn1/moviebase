@@ -95,7 +95,7 @@ public class RentRequest {
 
 
     //
-    // Callback interface - implemented by the calling class (AddActivity in our case).
+    // Callback interface - implemented by the calling class (RentableMovieActivity in our case).
     //
     public interface RentListener {
 

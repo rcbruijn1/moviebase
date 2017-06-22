@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="rbdb.moviebase.presentation.AddActivity">
+    tools:context="rbdb.moviebase.presentation.RentableMovieActivity">
 
     <ListView
         android:id="@+id/listViewFilms"

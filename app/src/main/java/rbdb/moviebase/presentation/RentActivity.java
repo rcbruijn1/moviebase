@@ -14,16 +14,14 @@ import android.widget.Toast;
 import com.andexert.library.RippleView;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 import es.dmoral.toasty.Toasty;
 import rbdb.moviebase.R;
-import rbdb.moviebase.Service.EditRequest;
 import rbdb.moviebase.Service.RentRequest;
-import rbdb.moviebase.domain.Rental;
+import rbdb.moviebase.domain.Film;
 
-public class CommitEditActivity extends AppCompatActivity implements
-        EditRequest.EditListener, Serializable{
+public class RentActivity extends AppCompatActivity implements
+        RentRequest.RentListener, Serializable{
 
     public final String TAG = this.getClass().getSimpleName();
 
@@ -31,18 +29,17 @@ public class CommitEditActivity extends AppCompatActivity implements
 
     private TextView txtLoginErrorMsg;
 
-
+    private String mCustomerId;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_commit_edit);
+        setContentView(R.layout.activity_commit_add);
 
         Intent intent = getIntent();
-        Rental rental = (Rental) intent.getSerializableExtra("RENTAL_DATA");
-        final String mInventoryId = rental.getInventoryID().toString();
-        final String mRentalId = rental.getRentalID().toString();
+        Film film = (Film) intent.getSerializableExtra("FILM_DATA");
+        final String mInventoryId = film.getInventoryID().toString(); intent.getSerializableExtra("ID");
 
 
         System.out.println(mInventoryId);
@@ -51,12 +48,11 @@ public class CommitEditActivity extends AppCompatActivity implements
 
 
         txtLoginErrorMsg = (TextView) findViewById(R.id.txtLoginErrorMessage);
-        final RippleView rippleViewEdit = (RippleView) findViewById(R.id.btnEdit);
+        final RippleView rippleViewRent = (RippleView) findViewById(R.id.btnRent);
 
-        rippleViewEdit.setOnClickListener(new View.OnClickListener() {
+        rippleViewRent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
 
 
@@ -64,15 +60,14 @@ public class CommitEditActivity extends AppCompatActivity implements
                 SharedPreferences sharedPref = context.getSharedPreferences(
                         getString(R.string.preference_file_key), Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPref.edit();
-                editor.putString(getString(R.string.rental_id), mRentalId);
+                editor.putString(getString(R.string.customer_id), mCustomerId);
                 editor.putString(getString(R.string.inventory_id), mInventoryId);
                 editor.commit();
 
-                // TODO Checken of username en password niet leeg zijn
-                // momenteel checken we nog niet
 
-                editRental();
-                Toasty.success(getApplicationContext(), "Returned!", Toast.LENGTH_LONG, true).show();
+
+                rentFilm();
+                Toasty.success(getApplicationContext(), "Rented!", Toast.LENGTH_LONG, true).show();
                 Intent back = new Intent(getApplicationContext(), MenuActivity.class);
                 startActivity(back);
                 finish();
@@ -100,21 +95,13 @@ public class CommitEditActivity extends AppCompatActivity implements
 
 
 
-
-
-
-
     /**
      * Start the activity to GET all Films from the server.
      */
-    private void editRental(){
+    private void rentFilm(){
 
-        EditRequest requestEdit = new EditRequest(getApplicationContext(), this);
-        requestEdit.handleGetRentals();
+        RentRequest request = new RentRequest(getApplicationContext(), this);
+        request.handleRentFilm();
     }
 
-    @Override
-    public void onRentalsAvailable(ArrayList<Rental> rentals) {
-
-    }
 }

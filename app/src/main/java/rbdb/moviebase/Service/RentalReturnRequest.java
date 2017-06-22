@@ -11,7 +11,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -19,8 +18,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import rbdb.moviebase.R;
-import rbdb.moviebase.domain.Film;
-import rbdb.moviebase.domain.FilmMapper;
 import rbdb.moviebase.domain.Rental;
 import rbdb.moviebase.domain.RentalMapper;
 
@@ -28,13 +25,13 @@ import rbdb.moviebase.domain.RentalMapper;
  * Created by Daniel on 18-6-2017.
  */
 
-public class EditRequest {
+public class RentalReturnRequest {
 
     private Context context;
     public final String TAG = this.getClass().getSimpleName();
 
     // De aanroepende class implementeert deze interface.
-    private EditRequest.EditListener listener;
+    private RentalReturnRequest.EditListener listener;
 
     /**
      * Constructor
@@ -42,7 +39,7 @@ public class EditRequest {
      * @param context
      * @param listener
      */
-    public EditRequest(Context context, EditRequest.EditListener listener) {
+    public RentalReturnRequest(Context context, RentalReturnRequest.EditListener listener) {
         this.context = context;
         this.listener = listener;
     }
@@ -99,7 +96,7 @@ public class EditRequest {
 
 
     //
-    // Callback interface - implemented by the calling class (AddActivity in our case).
+    // Callback interface - implemented by the calling class (RentableMovieActivity in our case).
     //
     public interface EditListener {
         // Callback function to return a fresh list of Films

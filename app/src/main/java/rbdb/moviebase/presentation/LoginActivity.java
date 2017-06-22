@@ -254,7 +254,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
                                 handleLogin(username, password);
-                                
+
 
                             } catch (JSONException e) {
                                 // e.printStackTrace();

@@ -20,7 +20,7 @@ import rbdb.moviebase.Service.FilmRequest;
 import rbdb.moviebase.domain.Film;
 import rbdb.moviebase.domain.FilmAdapter;
 
-public class AddActivity extends AppCompatActivity implements OnItemClickListener,
+public class RentableMovieActivity extends AppCompatActivity implements OnItemClickListener,
         FilmRequest.FilmListener{
 
     public final String TAG = this.getClass().getSimpleName();
@@ -79,7 +79,7 @@ public class AddActivity extends AppCompatActivity implements OnItemClickListene
         Log.i(TAG, "Position " + position + " is geselecteerd");
 
 
-        Intent intent = new Intent(getApplicationContext(), CommitAddActivity.class);
+        Intent intent = new Intent(getApplicationContext(), RentActivity.class);
         Film film = films.get(position);
         String inventoryID = film.getInventoryID().toString();
 
