@@ -216,7 +216,7 @@ public class LoginActivity extends AppCompatActivity {
         return;
     }
 
-    private void handleSignUp(String username, String password, String firstName, String lastName) {
+    private void handleSignUp(final String username, final String password, String firstName, String lastName) {
         //
         // Maak een JSON object met username en password. Dit object sturen we mee
         // als request body (zoals je ook met Postman hebt gedaan)
@@ -241,6 +241,8 @@ public class LoginActivity extends AppCompatActivity {
                             // is het token tussen app-stop en -herstart beschikbaar -
                             // totdat het token expired.
                             try {
+
+
                                 String token = response.getString("id_token");
 
                                 Context context = getApplicationContext();
@@ -250,11 +252,9 @@ public class LoginActivity extends AppCompatActivity {
                                 editor.putString(getString(R.string.saved_token), token);
                                 editor.commit();
 
-                                // Start the main activity, and close the login activity
-                                Intent main = new Intent(getApplicationContext(), AddActivity.class);
-                                startActivity(main);
-                                // Close the current activity
-                                finish();
+
+                                handleLogin(username, password);
+                                
 
                             } catch (JSONException e) {
                                 // e.printStackTrace();
@@ -326,7 +326,7 @@ public class LoginActivity extends AppCompatActivity {
         return trimmedString;
     }
 
-    // TODO Verplaats displayMessage naar een centrale 'utility class' voor gebruik in alle classes.
+
     public void displayMessage(String toastString){
         Toasty.error(getApplicationContext(), toastString, Toast.LENGTH_LONG, true).show();
     }

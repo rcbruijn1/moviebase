@@ -40,7 +40,7 @@ public class CommitAddActivity extends AppCompatActivity implements
         Intent intent = getIntent();
         Film film = (Film) intent.getSerializableExtra("FILM_DATA");
         final String mInventoryId = film.getInventoryID().toString(); intent.getSerializableExtra("ID");
-        // final String mCustomerId = film.getCustomerID().toString(); intent.getSerializableExtra("cID")
+
 
         System.out.println(mInventoryId);
 
@@ -56,7 +56,6 @@ public class CommitAddActivity extends AppCompatActivity implements
 
 
 
-
                 Context context = getApplicationContext();
                 SharedPreferences sharedPref = context.getSharedPreferences(
                         getString(R.string.preference_file_key), Context.MODE_PRIVATE);
@@ -65,8 +64,7 @@ public class CommitAddActivity extends AppCompatActivity implements
                 editor.putString(getString(R.string.inventory_id), mInventoryId);
                 editor.commit();
 
-                // TODO Checken of username en password niet leeg zijn
-                // momenteel checken we nog niet
+
 
                 rentFilm();
                 Toasty.success(getApplicationContext(), "Rented!", Toast.LENGTH_LONG, true).show();
@@ -93,10 +91,6 @@ public class CommitAddActivity extends AppCompatActivity implements
         }
         return result;
     }
-
-
-
-
 
 
 

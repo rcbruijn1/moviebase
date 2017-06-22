@@ -58,7 +58,7 @@ public class EditRequest {
         SharedPreferences sharedPref = context.getSharedPreferences(
                 context.getString(R.string.preference_file_key), Context.MODE_PRIVATE);
         final String token = sharedPref.getString(context.getString(R.string.saved_token), "token");
-        final String cusId = sharedPref.getString(context.getString(R.string.inventory_id), "Id");
+     //   final String cusId = sharedPref.getString(context.getString(R.string.inventory_id), "Id");
         final String invId = sharedPref.getString(context.getString(R.string.rental_id), "invId");
         //  if(token != null && !token.equals("token")) {
 

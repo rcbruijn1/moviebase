@@ -31,7 +31,7 @@ public class CommitEditActivity extends AppCompatActivity implements
 
     private TextView txtLoginErrorMsg;
 
-    private String mCustomerId;
+
 
 
     @Override
@@ -42,9 +42,8 @@ public class CommitEditActivity extends AppCompatActivity implements
         Intent intent = getIntent();
         Rental rental = (Rental) intent.getSerializableExtra("RENTAL_DATA");
         final String mInventoryId = rental.getInventoryID().toString();
-        //intent.getStringExtra("ID");
         final String mRentalId = rental.getRentalID().toString();
-        //intent.getStringExtra("rID");
+
 
         System.out.println(mInventoryId);
 

@@ -57,19 +57,7 @@ public class EditActivity extends AppCompatActivity implements OnItemClickListen
         //
         Log.d(TAG, "Token gevonden - Films ophalen!");
         getRentedFilms();
-        /*
-        } else {
-            //
-            // Blijkbaar was er geen token - eerst inloggen dus
-            //
-            Log.d(TAG, "Geen token gevonden - inloggen dus");
-            Intent login = new Intent(getApplicationContext(), LoginActivity.class);
-            startActivity(login);
-            // Sluit de huidige activity. Dat voorkomt dat de gebuiker via de
-            // back-button zonder inloggen terugkeert naar het homescreen.
-            finish();
-        }
-*/
+
 
     }
 
@@ -92,12 +80,7 @@ public class EditActivity extends AppCompatActivity implements OnItemClickListen
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Log.i(TAG, "Position " + position + " is geselecteerd");
 
-//
-//        Intent intent = new Intent(getApplicationContext(), CommitAddActivity.class);
-//        String mInventoryID = film.getInventoryID();
-//        String invId = null;
-//        intent.putExtra(mInventoryID, invId);
-//        startActivity(intent);
+
 
 
         Intent intent = new Intent(getApplicationContext(), CommitEditActivity.class);

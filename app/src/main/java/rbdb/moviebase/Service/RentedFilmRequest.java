@@ -61,7 +61,7 @@ public class RentedFilmRequest {
         SharedPreferences sharedPref = context.getSharedPreferences(
                 context.getString(R.string.preference_file_key), Context.MODE_PRIVATE);
         final String token = sharedPref.getString(context.getString(R.string.saved_token), "token");
-        //  if(token != null && !token.equals("token")) {
+
 
         Log.i(TAG, "Token gevonden, we gaan het request uitvoeren");
 
